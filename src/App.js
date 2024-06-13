@@ -1,10 +1,28 @@
+import React, {useState} from 'react';
 import Navbar from './components/Navbar';
-import Textarea from './components/textarea'
+import Textarea from './components/textarea';
+
+
+
 function App() {
+  const [mode, SetdarkMode]=useState("light");
+
+  const toggleMode=()=>{
+    if(mode==='light'){
+      SetdarkMode('dark');
+      document.body.style.backgroundColor='#212529';
+    }else{
+      SetdarkMode('light');
+      document.body.style.backgroundColor='white';
+
+    }
+  }
+
+
   return (
     <>
-    <Navbar title="Text Utilization" align="About"/>
-    <Textarea heading="Enter text to Analyze"/>
+    <Navbar title="Text Utilization" align="About" mode={mode} toggleMode={toggleMode}/>
+    <Textarea heading="Enter text to Analyze" mode={mode}/>
     </>
   );
 }

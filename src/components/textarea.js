@@ -88,19 +88,19 @@ function Textarea(props) {
   return (
     <div>
         <>
-        <div className='container'>
+        <div className='container' style={{color: props.mode==='dark'?'#ffffff':'#000'}}>
         <div className="mb-3">
             <h2 className='my-4'>
                 {props.heading}
             </h2>
-            <textarea className="form-control" onChange={DoOnChange} value={text} id="myBox" ref={config} rows="8"></textarea>
+            <textarea className="form-control" onChange={DoOnChange} value={text} id="myBox" ref={config} rows="8" style={{backgroundColor: props.mode==='dark'?'#404851':'white', color: props.mode==='dark'?"#fff":"#000"} } ></textarea> 
             </div>
 
             <button type="button" className="btn btn-primary m-2" onClick={handleClear}>Clear Texts</button>
 
             <button type="button" className="btn btn-primary m-2" onClick={handleUpperCase}>To UpperCase</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleLowerCase}>To UpperCase</button>
+            <button type="button" className="btn btn-primary m-2" onClick={handleLowerCase}>To LowerCase</button>
 
             <button type="button" className="btn btn-primary m-2" onClick={handleCapitalizeCase}>Captalize</button>
 
@@ -116,10 +116,10 @@ function Textarea(props) {
             
 
         </div>
-        <div className='container my-2'>
+        <div className='container my-2' style={{color: props.mode==='dark'?'#ffffff':'#000'}}>
             <h2>Your Text Summary</h2>
             <h5>Preview</h5>
-            <p className='border'>{text}</p>
+            <p style={{color: "#001aff"}}>{text}</p>
 
             <h5>{text.split(" ").length-1} words and {text.length} character</h5>
 
