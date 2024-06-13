@@ -119,7 +119,7 @@ function Textarea(props) {
         <div className='container my-2' style={{color: props.mode==='dark'?'#ffffff':'#000'}}>
             <h2>Your Text Summary</h2>
             <h5>Preview</h5>
-            <p style={{color: "#001aff"}}>{text}</p>
+            <p style={{color: "#001aff"}}>{text.length>0?text:"Enter Some Text to Preview it here." }</p>
 
             <h5>{text.split(" ").length-1} words and {text.length} character</h5>
 
@@ -132,7 +132,7 @@ function Textarea(props) {
 
 
 
-            <h4>Extracted Emails</h4>
+            <h4>{emails.length>0?"Extracted Emails":' '}</h4>
             <ul className='list-group'>
                 {
                 emails.map((email, index) => (
