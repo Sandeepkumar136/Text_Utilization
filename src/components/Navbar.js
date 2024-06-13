@@ -57,7 +57,7 @@ function Navbar(props) {
 
   return (
     <div>
-      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} border border-primary rounded m-1`}>
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} rounded m-1`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">{props.title}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
