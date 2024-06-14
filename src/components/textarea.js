@@ -100,23 +100,23 @@ function Textarea(props) {
             <textarea className="form-control" onChange={DoOnChange} value={text} id="myBox" ref={config} rows="8" style={{backgroundColor: props.mode==='dark'?'#404851':'white', color: props.mode==='dark'?"#fff":"#000"} } ></textarea> 
             </div>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleClear}>Clear Texts</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handleClear}>Clear Texts</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleUpperCase}>To UpperCase</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handleUpperCase}>To UpperCase</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleLowerCase}>To LowerCase</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handleLowerCase}>To LowerCase</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleCapitalizeCase}>Captalize</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handleCapitalizeCase}>Captalize</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleEmails}>Extract Emails</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handleEmails}>Extract Emails</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={RemoveSpace}>Remove Spaces</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={RemoveSpace}>Remove Spaces</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleCopy}>Copy Text</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handleCopy}>Copy Text</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handleSave}>Download</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handleSave}>Download</button>
 
-            <button type="button" className="btn btn-primary m-2" onClick={handlehtmlToJsx}>Convert in Jsx</button>
+            <button type="button" disabled={text.length===0} className="btn btn-primary m-2" onClick={handlehtmlToJsx}>Convert in Jsx</button>
             
 
         </div>
@@ -125,11 +125,11 @@ function Textarea(props) {
             <h5>Preview</h5>
             <p style={{color: "#001aff"}}>{text.length>0?text:"Enter Some Text to Preview it here." }</p>
 
-            <h5>{text.split(" ").length-1} words and {text.length} character</h5>
+            <h5>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} character</h5>
 
             <h5>Paragraphs {totalparagraphs}</h5>
 
-            <h5>{0.008*text.split('').length} Minutes Takes to Read</h5>
+            <h5>{0.008*text.split('').filter((element)=>{return element.length!==0}).length} Minutes Takes to Read</h5>
 
 
 
