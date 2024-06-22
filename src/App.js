@@ -22,11 +22,11 @@ function App() {
     if(mode==='light'){
       SetdarkMode('dark');
       document.body.style.backgroundColor='#252e36';
-      Showalert("Dark mode have been enabled!",'success');
+      Showalert("🌒 Dark mode have been enabled!",'success');
     }else{
       SetdarkMode('light');
       document.body.style.backgroundColor='white';
-      Showalert("Light mode have been enabled!",'primary');
+      Showalert("☀️ Light mode have been enabled!",'primary');
 
     }
   }

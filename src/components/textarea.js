@@ -40,7 +40,11 @@ function Textarea(props) {
     const handleEmails=()=>{
         const ExtractedMails=ExtractedEmails(text);
         SetEmails(ExtractedMails);
-        props.Showalert("Successfully Fatched Emails! 😎",'info')
+        if(ExtractedMails.length===0){
+            props.Showalert("Not Emails Found 😎",'danger')
+        }else{
+            props.Showalert("Successfully Fatched Emails! 😎",'info')
+        }
     }
 
     const Paragraphs=(mnc)=>{
@@ -80,13 +84,19 @@ function Textarea(props) {
         document.body.removeChild(link);
         props.Showalert("Successfully Downloaded! 👍", "primary")
 
+
     }
     const handlehtmlToJsx=()=>{
         let jsx=text.replace(/class/g, "className");
         jsx=jsx.replace(/for=/g, 'htmlFor');
-        
         SetText(jsx);
-        props.Showalert("Converted in JSX 👌", "light")
+
+        if(jsx===text){
+            props.Showalert("JSX not Found 🔎", "danger")
+
+        }else{
+            props.Showalert("Converted in JSX 👌", "light")
+        }
     }
     
   return (
